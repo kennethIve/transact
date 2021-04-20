@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import {Container, Form,Button} from "react-bootstrap"
+import { useSelector } from "react-redux";
 import '../resources/LoginPage.css';
 
 const containerStyle={
@@ -9,26 +10,34 @@ const containerStyle={
     justifyContent: "center",
     minWidth:300,
     maxWidth:400,
-    minHeight: "90vh",
+    minHeight: "100vh",
 }
 function LoginPage(){
-    let email= {
+    const email= {
         id:"email",
         labelName:"Email Address",
         helper:"Please Enter Your Email",
         inputType:"email",
     }
-    let password = {
+    const password = {
         id:"password",
         labelName:"Password",
         helper:"Please Enter Your Password",
         inputType:"password",
     }
-    let formStyle = {border:"1px solid grey",borderRadius:"12px",padding:"12px"}
+    const formStyle = {
+        border:"1px solid grey",
+        borderRadius:"12px",
+        padding:"12px",
+        boxShadow:"2px 2px",
+        backgroundColor:"white",
+    }
     const onFormSubmit = (event)=>{
         //let fakeAuth =  useContext(authContext);
         console.log("Submiting Form");
     }
+    const selectAuth = state => state.auth;
+    console.log(useSelector(state=>state.authReducer));
     return (<Container style={containerStyle}>
                 <Form style={formStyle} onSubmit={onFormSubmit}>
                     <FormItem setting={email} type="text"/>
