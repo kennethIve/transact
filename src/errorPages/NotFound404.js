@@ -1,8 +1,7 @@
-function NotFound404()
-{
-    return (
-        <h1>404 Not Found</h1>
-    );
-};
+import { Container } from "react-bootstrap";
 
-export default NotFound404;
+export const NotFound404 = () =>(
+        <Container>
+            <h1 style={{textAlign:"center"}}>404 Not Found</h1>
+        </Container>
+    )
